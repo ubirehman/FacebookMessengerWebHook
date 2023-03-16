@@ -3,7 +3,11 @@ const express = require('express');
 const router = express.Router();
 
 
-const multer = require('multer');
+const adminController = require('../controller/admin');
+
+
+router.get('/', adminController.Home);
+
 
 
 module.exports = router;

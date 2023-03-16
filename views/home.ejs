@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%-include('../includes/head') %>
+
+    <% if(isLoggedIn) { %>
+
+        <body>
+            <div class="content">
+                <div clas="row">
+                    <div class="column">
+                        <div class="projects">
+                            <h1>Completed Contracts</h1>
+                            <div class="scrollview">
+                                <%for(var i=0; i<completedProjects.length; i++){ %>
+                                    <a href="completed-contracts/?contract=<%= completedProjects[i].id %>">
+                                        <%= completedProjects[i].project_name %>
+                                    </a>
+                                    <br>
+                                    <br>
+                                    <% }%>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="column">
+                    <h1>COL 2</h1>
+
+                </div>
+
+
+
+                <div class="column">
+                    <div class="projects">
+                        <h1>Incompleted Contracts</h1>
+                        <div class="scrollview">
+                            <p>My first</p>
+                            <p>My first</p>
+                            <p>My first</p>
+                            <p>My first</p>
+                            <p>My first</p>
+                            <p>My first</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="column">
+                    <h1>COL 4</h1>
+
+                </div>
+            </div>
+
+        </body>
+        <% } %>
+
+</html>

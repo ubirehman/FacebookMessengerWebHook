@@ -1,0 +1,74 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/navigation.css">
+    <link rel="stylesheet" href="../login.css">
+    <link rel="stylesheet" href="../addData.css">
+    <link rel="stylesheet" href="../addData.css">
+    <link rel="stylesheet" href="../sidebar.css">
+    <link rel="stylesheet" href="../view-graph.css">
+    <link rel="stylesheet" href="../scrollview.css">
+    <link rel="stylesheet" href="../assesment.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+   
+    <header class="navbar">
+        <title><%-pageTitle%></title>
+
+        <nav class="navbar-menu">
+            <li><a href="/">Home</a></li>
+            <% if (isLoggedIn) { %>
+                <li id="logout-button"><a href="/logout">Log out</a></li>
+                <% } else { %>
+                    <li><a href="/add-user">Login</a></li>
+                    <% } %>
+        </nav>
+        <div class="navbar-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <script>
+        $(document).ready(function () {
+            if (!"{{isLoggedIn}}") {
+                $("#logout-button").hide();
+            }
+        });
+    </script>
+
+</head>
+
+<body>
+
+
+    <% if (isLoggedIn) { %>
+        <div class="sidebar">
+            <a class="<%= pageTitle === 'Add Data' ? 'active' : '' %>" href="/add-data">Add Data</a>
+            <a class="<%= pageTitle === 'View Data' || pageTitle === 'Home' ? 'active' : '' %>" href="/">View Data</a>
+            <a class="<%= pageTitle === 'View Graph' ? 'active' : '' %>" href="/view-graph">View Graph</a>
+            <a class="<%= pageTitle === 'Organization Assesment' ? 'active' : '' %>" href="/assesment">Organization Assesment</a>
+        </div>
+        <% } %>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(".navbar-toggle").click(function () {
+        $(".navbar-menu").toggleClass("active");
+    });
+</script>
+
+
+
+
+
+
+
+</head>
