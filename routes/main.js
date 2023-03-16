@@ -12,7 +12,11 @@ const adminController = require('../controller/admin');
 
 router.get('/', adminController.Home);
 router.get('/webhook', adminController.getWebhook);
-router.get('/webhook', adminController.postWebhook);
+router.post('/webhook', adminController.postWebhook);
+
+
+router.get('/pagewebhook', adminController.getWebhook);
+router.post('/pagewebhook', adminController.postWebhook);
 
 
 
