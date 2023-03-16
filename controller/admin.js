@@ -3,6 +3,9 @@ const session = require('express-session');
 const moment = require('moment');
 
 var isUserLoggedin = false;
+var received_updates = [];
+
+
 
 const MY_VERIFY_TOKEN = process.env.MY_VERIFY_TOKEN;
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
@@ -43,7 +46,6 @@ exports.postWebhook = (req, res) => {
     // Parse the request body from the POST
     let body = req.body;
     console.log(body);
-    res.send(body);
 
     // Check the webhook event is from a Page subscription
     if (body.object === 'page') {
@@ -71,7 +73,10 @@ exports.postWebhook = (req, res) => {
         });
 
         // Return a '200 OK' response to all events
-        res.status(200).send('EVENT_RECEIVED');
+        console.log('request header X-Hub-Signature validated');
+        // Process the Facebook updates here
+        received_updates.unshift(req.body);
+        res.sendStatus(200);
 
     } else {
         // Return a '404 Not Found' if event is not from a page subscription
