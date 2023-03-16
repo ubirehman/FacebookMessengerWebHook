@@ -4,6 +4,7 @@ const router = express.Router();
 
 
 const adminController = require('../controller/admin');
+router.use(express.json({ type: '*/*' })); 
 
 
 
