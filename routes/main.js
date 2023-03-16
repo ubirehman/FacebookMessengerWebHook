@@ -12,6 +12,7 @@ router.use(express.json({ type: '*/*' }));
 
 
 router.get('/', adminController.Home);
+
 router.get('/webhook', adminController.getWebhook);
 router.post('/webhook', adminController.postWebhook);
 
